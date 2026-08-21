@@ -1,0 +1,36 @@
+name: Bitácora de Cambio de Seguridad / Hardening
+description: Registrar ajustes en firewalls, reglas WAF, políticas de seguridad o bastionado.
+title: "[CONFIG-CHANGE]: "
+labels: ["hardening", "secops", "change-management"]
+body:
+  - type: input
+    id: system_target
+    attributes:
+      label: Sistema / Servidor / Cluster Afectado
+      placeholder: Ej. Cluster Kubernetes Prod, WAF Cloudflare, AWS Security Group X
+    validations:
+      required: true
+  - type: dropdown
+    id: change_type
+    attributes:
+      label: Tipo de Cambio
+      options:
+        - Ajuste de Reglas WAF / Firewall
+        - Aplicación de Bastionado (CIS Benchmark)
+        - Actualización de Certificado SSL/TLS
+        - Modificación de Política KMS / Encriptación
+        - Cambio en Reglas EDR / Antivirus
+    validations:
+      required: true
+  - type: textarea
+    id: justification
+    attributes:
+      label: Justificación del Cambio
+      placeholder: ¿Por qué se realiza este cambio? (Ej. Mitigación de vulnerabilidad, cumplimiento)
+    validations:
+      required: true
+  - type: textarea
+    id: rollback_plan
+    attributes:
+      label: Plan de Reversión (Rollback)
+      placeholder: Pasos para revertir en caso de afectación a producción.
