@@ -1,0 +1,35 @@
+name: Bitácora de Inteligencia de Amenazas
+description: Registrar campañas maliciosas, malware o nuevos vectores de ataque externos.
+title: "[THREAT]: "
+labels: ["threat-intel", "cyber-threat"]
+body:
+  - type: input
+    id: threat_actor
+    attributes:
+      label: Actor de Amenaza / Grupo / Campaña
+      placeholder: Ej. APT29, Campaña Phishing Bancario, Ransomware X
+  - type: dropdown
+    id: attack_vector
+    attributes:
+      label: Vector de Ataque Principal
+      options:
+        - Phishing / Ingeniería Social
+        - Explotación de Aplicación Web / API
+        - Credenciales Robadas / Credential Stuffing
+        - Cadena de Suministro (Supply Chain)
+        - Malware / Ransomware
+        - Otro
+    validations:
+      required: true
+  - type: textarea
+    id: mitre_attck
+    attributes:
+      label: Tácticas y Técnicas MITRE ATT&CK
+      placeholder: Ej. T1566 (Phishing), T1059 (Command and Scripting Interpreter)
+  - type: textarea
+    id: iocs
+    attributes:
+      label: Indicadores de Compromiso (IoCs)
+      placeholder: Lista de IPs, hashes SHA-256, dominios, reglas YARA relacionadas.
+    validations:
+      required: true
