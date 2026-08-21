@@ -1,0 +1,36 @@
+name: Bitácora de Auditoría IAM / Accesos
+description: Registrar anomalías de acceso, elevación indebida de privilegios o revisiones IAM.
+title: "[IAM-LOG]: "
+labels: ["iam", "access-control", "audit"]
+body:
+  - type: input
+    id: target_identity
+    attributes:
+      label: Usuario / Identidad / Service Account Afectada
+      placeholder: Ej. usuario@empresa.com o sa-deploy-production
+    validations:
+      required: true
+  - type: dropdown
+    id: event_type
+    attributes:
+      label: Tipo de Evento
+      options:
+        - Elevación no autorizada de privilegios
+        - Uso de MFA no reconocido / Bypass
+        - Cuenta inactiva con accesos vigentes
+        - Inicio de sesión desde ubicación anómala
+        - Violación del principio de menor privilegio
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Detalles de la Auditoría / Log
+      placeholder: Incluye fragmentos de logs (CloudTrail, Azure AD, Okta, IAM local).
+    validations:
+      required: true
+  - type: textarea
+    id: action_taken
+    attributes:
+      label: Acciones Correctivas Tomadas
+      placeholder: Revocación de permisos, reseteo de credenciales, bloqueo de cuenta...
