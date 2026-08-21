@@ -1,0 +1,36 @@
+name: Bitácora Post-Mortem de Incidente
+description: Documentación y análisis tras el cierre de un incidente de seguridad.
+title: "[POST-MORTEM]: "
+labels: ["post-mortem", "lessons-learned"]
+body:
+  - type: input
+    id: incident_ref
+    attributes:
+      label: Referencia del Incidente
+      placeholder: Ej. Link o ID del [INCIDENTE] original
+    validations:
+      required: true
+  - type: input
+    id: mttr
+    attributes:
+      label: Tiempo de Detección y Respuesta (MTTD / MTTR)
+      placeholder: Ej. Detección: 15 min | Resolución: 2 horas
+  - type: textarea
+    id: root_cause
+    attributes:
+      label: Causa Raíz (Root Cause Analysis)
+      placeholder: Análisis detallado de qué falló o permitió que el evento ocurriera.
+    validations:
+      required: true
+  - type: textarea
+    id: what_went_well
+    attributes:
+      label: ¿Qué funcionó bien durante la respuesta?
+      placeholder: Herramientas, automatizaciones o procesos de comunicación efectivos.
+  - type: textarea
+    id: action_items
+    attributes:
+      label: Tareas de Mejora / Preventivas
+      placeholder: Lista de tareas a implementar para evitar que vuelva a suceder.
+    validations:
+      required: true
